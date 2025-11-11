@@ -16,7 +16,6 @@ from pathlib import Path
 import matplotlib.image as mpimg
 from matplotlib.offsetbox import OffsetImage, AnnotationBbox
 
-
 # define parameters
 m = 5000  # kg
 L = 14.5  # m
@@ -94,10 +93,11 @@ time = np.concatenate((mon_time, moff_time))
 ap = np.degrees(np.concatenate((mon_ap, moff_ap)))
 av = np.degrees(np.concatenate((mon_av, moff_av)))
 x = L * np.sin(np.radians(ap)); y = -L * np.cos(np.radians(ap))
+print(ap.max())
 
 # plot results
 plt.figure()
-plt.plot(time, ap)
+plt.plot(time, ap, color="red")
 plt.xlabel("Time (s)", fontsize=16)
 plt.xlim(0, (ride_time))
 plt.ylabel("Angular Position (\u00B0)", fontsize=16)
